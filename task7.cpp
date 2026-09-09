@@ -127,5 +127,19 @@ int main() {
     cout << "Strassen Result:" << endl;
     printMatrix(strassenMultiply(A4, B4));
 
+    // Test 3: Random values comparison
+    cout << endl << "[Test 3: Random 4x4 Matrix Comparison]" << endl;
+    Matrix Arand(4, vector<int>(4)), Brand(4, vector<int>(4));
+    for (int i = 0; i < 4; ++i) {
+        for (int j = 0; j < 4; ++j) {
+            Arand[i][j] = rand() % 10;
+            Brand[i][j] = rand() % 10;
+        }
+    }
+    cout << "Standard Result (Random Matrix):" << endl;
+    printMatrix(standardMultiply(Arand, Brand));
+    cout << "Strassen Result (Random Matrix):" << endl;
+    printMatrix(strassenMultiply(Arand, Brand));
+
     return 0;
 }
